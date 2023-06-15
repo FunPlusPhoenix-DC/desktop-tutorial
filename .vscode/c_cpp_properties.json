@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "windows-g++-x64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:/TESTSOFT/Headers",
+                "D:/TESTSOFT/Linkers"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.22621.0",
+            "compilerPath": "D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}

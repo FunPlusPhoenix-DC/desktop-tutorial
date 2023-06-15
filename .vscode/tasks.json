@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe Test little thinking",
+			"command": "D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin/g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-I",
+                "D:/TESTSOFT/Headers",
+				"-I",
+				"D:/TESTSOFT/Linkers",
+				"-g",				
+				"${fileDirname}\\**.cpp",
+				"-o",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"-lWS2_32"				
+			],
+			"options": {
+				"cwd": "D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "编译器: D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin/g++.exe"
+		}
+	]
+}
