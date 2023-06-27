@@ -1,7 +1,6 @@
 {
   "version": "0.2.0",
   "configurations": [
-
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
@@ -10,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "d:/TESTSOFT",
-      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "program": "d:/TESTSOFT/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
