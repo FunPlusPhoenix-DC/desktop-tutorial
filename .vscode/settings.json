@@ -80,6 +80,11 @@
     "chrono": "cpp",
     "ctime": "cpp",
     "ratio": "cpp",
-    "thread": "cpp"
+    "thread": "cpp",
+    "bitset": "cpp",
+    "cstring": "cpp",
+    "iterator": "cpp",
+    "map": "cpp",
+    "regex": "cpp"
   }
 }
