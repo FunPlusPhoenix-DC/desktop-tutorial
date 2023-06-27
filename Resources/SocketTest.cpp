@@ -8,6 +8,8 @@ HANDLE SocketTest::finishInitial = CreateEventW(NULL,true,false,NULL);
 
 HANDLE SocketTest::finishAccept = CreateEventW(NULL,true,false,NULL);
 
+bool SocketTest::finishAll = false;
+
 SOCKET SocketTest::originalSocket = INVALID_SOCKET;
 
 SocketTest::SocketTest()
@@ -298,6 +300,8 @@ int SocketTest::ConnectSocket(LPVOID lpParam)
     SetEvent(finishSend);
 
     WSACleanup();
+
+    SocketTest::finishAll = true;
 
     return 0;
 }

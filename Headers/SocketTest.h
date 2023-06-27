@@ -107,6 +107,8 @@ public:
 
     WORD wVersionRequested;
 
+    static bool finishAll;
+
     WSAData wsaData;
 
     NetworkStatus Nst;
