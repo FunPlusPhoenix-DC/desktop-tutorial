@@ -8,7 +8,15 @@
 
 #include "SocketTest.h"
 
+#include "FileAndCom.h"
+
+#include "FileOperation.h"
+
+#include <regex> //Test regex output
+
 #define DEFAULT_PORT 27015
+
+#define UNICODE
 
 typedef int (*pSock)(LPVOID lpParam); //type define a Function Pointer to ConnectThread's method.
 
@@ -16,8 +24,60 @@ typedef int (*pSockNoParam)(void); //type define a Function Pointer to listenThr
 
 typedef LPTHREAD_START_ROUTINE LSR; //type define type of multithread's parameter.
 
+typedef struct EuropeEngineer
+{
+    std::string luke;
+
+    std::string houvi;
+
+    std::string danny;
+}EE,*lpEE;
+
+template<typename T>
+class TestTransmit
+{
+private:
+    /* data */
+public:
+    TestTransmit(/* args */);
+    ~TestTransmit();
+
+    TestTransmit(T&A,T B);
+
+    T m_boolA;
+
+    T m_boolB;
+};
+
+template <class T> 
+TestTransmit<T>::TestTransmit(/* args */)
+{
+}
+
+template <class T>
+TestTransmit<T>::~TestTransmit()
+{
+}
+
+template <typename T>
+TestTransmit<T>::TestTransmit(T&A,T B):m_boolA(A),m_boolB(B){
+    std::cout << "Origin A:" << A << std::endl;
+
+    std::cout << "Origin B:" << B << std::endl;
+
+    std::cout << "***********************" << std::endl;
+
+    A = 0;
+
+    B = 0;
+}
+
+
+
 int main(){
     SocketTest st;
+
+    std::cout << "SendEvent:" << SocketTest::finishSend << std::endl;
 
     WSAData wsaData;
 
@@ -148,18 +208,93 @@ int main(){
             {
                 std::cout << "Recv:" << szBuffer << std::endl;
             }
+            else{
+                break;
+            }
+
+            ::memset(szBuffer,0,sizeof(szBuffer));
 
             Sleep(50);    
         }
     
     std::cout << "Wait result:" << WaitForSingleObject(SocketTest::finishSend,INFINITE) << std::endl;
 
-    for (;;)
+    std::cout << "SendEvent:" << SocketTest::finishSend << std::endl;
+
+    while (!SocketTest::finishAll) //Block the functions instead of using WaitForSingleObject.
     {
         /* code */
+
+        std::cout << "Waiting send data thread end" << std::endl;
     }
-    
-    
+
+    std::cout << "*****************Begin to test cSerialPort*****************" << std::endl;
+
+    /*cSerialPort cSP;  
+
+    DCB TestPortDCB;
+
+    LPDCB lpTestPortDCB = (LPDCB)::memset(&TestPortDCB,0,sizeof(TestPortDCB));
+
+    if(!cSP.InitPort(3,9600,'N',8,1,EV_RXCHAR)){
+        std::cout << "Port initial failed\n error code is :" << GetLastError() << std::endl; 
+    }
+    else
+        std::cout << "Success to initial port" << std::endl;
+
+    if(!cSP.OpenListenThread()){
+        std::cout << "ListenThread failed to open\n error code is :" << GetLastError() << std::endl;
+    }
+    else
+        std::cout << "Success to open listen thread" << std::endl;
+
+    unsigned char* data = new unsigned char[10];
+	data[0] = 0x54;  // Head_H
+	data[1] = 0x80;  // Head_L
+	data[2] = 0x01;  // 01 pics; 02 brightness; 03 focal length
+	data[3] = 0x00;  // pics number  
+
+	//for (i = 4; i < 10; i++)
+	//	data[i] = 0x00;    // Initial value is 0
+
+	cSP.WriteData(data, 10);
+
+	for (int i = 0; i < 18; i++)
+	{
+		data[3]++;
+		std::cout << i << " data[3]=" << data[3] << std::endl;
+		//cout << "data[" << i << "]=" << data[i] << endl;
+		cSP.WriteData(data, 10);
+		Sleep(0.5 * 1000);
+	}
+	// 17 pictures are projectored
+ 
+	int temp;
+	std::cin >> temp;
+
+    operator delete[](data);
+
+    data = NULL;*/
+    // TestTransmit<int> tplTest(iNum,iNum2);  <- this is the template initialize.
+    InitAndWriteData();
+
+    std::cout << "*****************Begin to test regex*****************" << std::endl;
+
+    std::string str = "\\*Error:";
+
+    char str_com[256]{0};
+
+    std::cin.getline(str_com,256);
+
+    std::cout << str_com << std::endl;
+
+    std::regex str_reg(str);
+
+    std::cout << "after regex str_reg == " << 
+    std::regex_search(str_com,str_reg) << std::endl;
+
+    if(std::regex_search(str_com,str_reg))
+        std::cout << "Search:" << str_com << std::endl;
 
     return 0;
 }
