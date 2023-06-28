@@ -14,7 +14,7 @@
 				"-g",				
 				"${fileDirname}\\**.cpp",
 				"-o",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${workspaceFolder}\\build\\Debug\\${fileBasenameNoExtension}.exe",
 				"-lWS2_32"				
 			],
 			"options": {
