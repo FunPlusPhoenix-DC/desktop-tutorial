@@ -197,7 +197,7 @@ int main(){
             std::cout << "After accepted, Socket is:" << acceptSocket << std::endl;
         }
 
-        SetEvent(SocketTest::finishAccept); //NOT worked at this exmple.
+        //SetEvent(SocketTest::finishAccept); //NOT worked at this exmple.
 
         while (true)
         {
@@ -217,7 +217,7 @@ int main(){
             Sleep(50);    
         }
     
-    std::cout << "Wait result:" << WaitForSingleObject(SocketTest::finishSend,INFINITE) << std::endl;
+    if(WaitForSingleObject(SocketTest::finishSend,INFINITE) == WAIT_OBJECT_0);
 
     std::cout << "SendEvent:" << SocketTest::finishSend << std::endl;
 
@@ -276,7 +276,11 @@ int main(){
 
     data = NULL;*/
     // TestTransmit<int> tplTest(iNum,iNum2);  <- this is the template initialize.
-    InitAndWriteData();
+    //InitAndWriteData();
+
+    std::cout << "CloseHandle:" << CloseHandle(SocketTest::finishAccept) << std::endl;
+
+    std::cout << "CloseHandle:" << CloseHandle(SocketTest::finishSend) << std::endl;
 
     std::cout << "*****************Begin to test regex*****************" << std::endl;
 

@@ -227,7 +227,13 @@ int SocketTest::ConnectSocket(LPVOID lpParam)
 
     std::cout << "In ConnectSocket &socket:" << &socket << std::endl;
 
-    WaitForSingleObject(finishInitial,INFINITE); //NOT worked.
+    if(WAIT_OBJECT_0 == WaitForSingleObject(finishInitial,INFINITE)){
+        std::cout << "Have received the Initial event";
+    } //NOT worked.
+
+    else{
+        std::cout << "Didn't enter the Blocking." << std::endl;
+    }
 
     if(socket != INVALID_SOCKET){
         sockaddr_in ConnectStatus;
@@ -238,7 +244,7 @@ int SocketTest::ConnectSocket(LPVOID lpParam)
 
         ConnectStatus.sin_port = htons(6666); //as same as Server like.
 
-        //WaitForSingleObject(finishAccept,INFINITE);
+//        if(WAIT_OBJECT_0 == WaitForSingleObject(finishAccept,INFINITE));
 
         int iResult = 0;
 
