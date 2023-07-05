@@ -26,13 +26,13 @@ typedef HANDLE (*hpFunc)(void*);
 #endif
 
 
-  extern "C" DLLFUN_API int Min();
+  DLLFUN_API int Min();
 
-  extern "C" DLLFUN_API int Max();
+  DLLFUN_API int Max();
 
-  extern "C" DLLFUN_API int memberSize();
+  DLLFUN_API int memberSize();
 
 
-extern "C" DLLFUN_API void Test(void);
+  DLLFUN_API void Test(void);
 
 #endif
