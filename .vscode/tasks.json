@@ -9,13 +9,15 @@
 				"-fdiagnostics-color=always",
 				"-I",
                 "D:/TESTSOFT/Headers",
-				"-I",
-				"D:/TESTSOFT/Linkers",
+				"-L",
+				"${workspaceFolder}/Linkers",
+				"-ldllMain",
+				"-lWS2_32",
 				"-g",				
-				"${fileDirname}\\**.cpp",
+				"${fileDirname}\\*.cpp",
 				"-o",
-				"${workspaceFolder}\\build\\Debug\\${fileBasenameNoExtension}.exe",
-				"-lWS2_32"				
+				"${workspaceFolder}\\build\\Debug\\${fileBasenameNoExtension}.exe",				
+								
 			],
 			"options": {
 				"cwd": "D:/MinGw/MinGW_64/x86_64-7.3.0-release-win32-seh-rt_v5-rev0/mingw64/bin"
