@@ -12,6 +12,10 @@
 
 #include "FileOperation.h"
 
+#include "dllfunc.h"
+
+#include "MathLibrary.h"
+
 #include <regex> //Test regex output
 
 #define DEFAULT_PORT 27015
@@ -299,6 +303,40 @@ int main(){
 
     if(std::regex_search(str_com,str_reg))
         std::cout << "Search:" << str_com << std::endl;
+
+    /*HMODULE hmdllTest = LoadLibraryW(L"D:\\TESTSOFT\\Linkers\\dllMain.dll");
+
+    if(hmdllTest != NULL){                                                //use function from dll through GetProcAddress
+        FARPROC farprocDll = GetProcAddress(hmdllTest,"Test");
+
+        if (farprocDll != NULL)
+        {
+            std::cout << "pointer is :" << (void*)farprocDll << std::endl;
+
+            std::cout << farprocDll() << std::endl;
+        }
+        else
+            std::cout << "farprocDll is error address\n" <<
+            "errorcode is " << GetLastError() << std::endl;
+        
+    }
+    else
+        std::cout << "hmdllTest (HMODULE) is NULL" << std::endl;*/
+
+    /*fibonacci_init(1, 1);                                             //dll built by vs 2022;
+    // Write out the sequence values until overflow.
+    do {
+        std::cout << fibonacci_index() << ": "
+            << fibonacci_current() << std::endl;
+    } while (fibonacci_next());
+    // Report count of values written before overflow.
+    std::cout << fibonacci_index() + 1 <<
+        " Fibonacci sequence values fit in an " <<
+        "unsigned 64-bit integer." << std::endl;*/
+
+    Test();
+
+    system("pause");
 
     return 0;
 }
