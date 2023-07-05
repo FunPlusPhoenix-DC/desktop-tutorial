@@ -16,7 +16,7 @@
 #include <synchapi.h>
 
 
-#pragma comment(lib,"ws2_32.lib")
+//#pragma comment(lib,"ws2_32.lib")
 
 #define libExport __declspec(dllexport);
 
