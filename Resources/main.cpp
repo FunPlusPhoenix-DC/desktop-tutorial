@@ -107,7 +107,7 @@ int main(){
     HANDLE ConnectThread = CreateThread(NULL,0,(LSR)pFuncConnect,(LPVOID)&Client,CREATE_SUSPENDED,NULL);
     // Create an instance for thread start to execute Connect function.
 
-    if (ConnectThread == NULL)
+    if (ConnectThread == INVALID_HANDLE_VALUE)
     {
         std::cout << "Failed to create thread for sending data " << std::endl;
 
@@ -334,7 +334,9 @@ int main(){
         " Fibonacci sequence values fit in an " <<
         "unsigned 64-bit integer." << std::endl;*/
 
-    Test();
+    dllfunc dll;
+
+    dll.Test();
 
     system("pause");
 

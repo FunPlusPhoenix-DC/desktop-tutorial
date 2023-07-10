@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "d:/TESTSOFT",
-      "program": "${workspaceFolder}/build/Debug/${fileBasenameNoExtension}.exe",
+      "program": "d:/TESTSOFT/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
